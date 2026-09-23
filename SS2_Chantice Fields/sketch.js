@@ -36,16 +36,16 @@ function draw ()
 	rect(mouseX * 1, mouseY, grow, grow);
     
 
-             // function draw an square
+  // function draw an square
   //fill with values of R,G & B
   fill(173,245,89);
   strokeWeight(76);
   stroke (35, 109, 207);
    square (600, 400, 250, 100);
  
-   
+  
 
-               // function draw an quad
+  // function draw an quad
   //fill with values of R,G & B
   fill(229, 252, 93 );
   strokeWeight(12);
