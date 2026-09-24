@@ -11,47 +11,54 @@ let r = 0;	//red value, from 0 to 255
 let g = 0;	//green value, from 0 to 255
 let b = 0;	//blue value, from 0 to 255
 
-//Declaring global constants
+//Declaring global constants:
 const centerPosX = 400;	
 const centerPosY = 400;
+
+let ellipsePosY = 600;
 
 function setup() 
 {
   //set the size of canvas with height & width
   createCanvas(800, 800);
-
-  //background colors will be in RGB values
-  background( 0, 300, 200);
+  let example = 75;
 }
 
-function draw ()
+function draw()
 {
+  //background colors will be in RGB values
+  background(r, g, b)
+  background( 0, 300, 200);
+
   // function draw an ellipse
   //fill with values of R,G & B
   fill(225, 93, 252);
   strokeWeight(6);
-  stroke (255, 157, 168)
-    ellipse(mouseX, mouseY, 200, 50)
-     rectMode(CENTER);	//set rect mode to center, so x and y coordinates will be the center of the rectangle
-	rect(mouseX * 1, mouseY, grow, grow);
-    
+  stroke (255, 157, 168);
+    ellipse(mouseX, mouseY, 50, 50);
 
-  // function draw an square
-  //fill with values of R,G & B
-  fill(173,245,89);
-  strokeWeight(76);
-  stroke (35, 109, 207);
-   square (600, 400, 250, 100);
- 
-  
 
+     fill(173,245,89);
+     strokeWeight(50);
+     ellipse(xLocation + 300, mouseX, mouseY, height / 6, width / 4, width / 4);
+     
   // function draw an quad
   //fill with values of R,G & B
   fill(229, 252, 93 );
   strokeWeight(12);
   stroke (252, 219, 93);
-    quad (400, 200, 600, 500, 200, 300,600, 800);
+  quad (400, 200, 600, 500, 200, 300, 600, 800, grow, grow);
+    
+}
+
+function keyPressed()
+{
+ //increase fill color by 10 each time mouse is pressed
+fillColor += 10;
 
 }
+
+    
+
 
 
