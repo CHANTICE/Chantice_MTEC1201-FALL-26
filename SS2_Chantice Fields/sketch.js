@@ -48,15 +48,11 @@ function draw()
   strokeWeight(12);
   stroke (252, 219, 93);
   quad (400, 200, 600, 500, 200, 300, 600, 800, grow, grow);
+
     
 }
 
-function keyPressed()
-{
- //increase fill color by 10 each time mouse is pressed
-fillColor += 10;
 
-}
 
     
 
