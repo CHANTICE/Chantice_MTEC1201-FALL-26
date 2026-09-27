@@ -31,6 +31,7 @@ function draw()
   circle(400, 380, 140);
   circle(400, 280, 100);
 
-    // Draw the triangle.
-  triangle(25, 25, 8, -30, 36, 25)
+    // Draw the triangle
+  triangle(410, 235, 425, 215, 430, 255);
+triangle(365, 245, 370, 215, 395, 255);
 }
