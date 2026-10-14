@@ -12,6 +12,7 @@ let magritteclouds5;
 let magrittetable;
 let bg;
 
+
 //Global variables for movement and opacity
 let opacity = 0;
 let fade = 1;
@@ -21,6 +22,7 @@ let xMove = 5;
 let yMove = 0;
 let rise = 1;
 let xlocation = 0;
+
 
 
 async function setup() 
@@ -61,16 +63,16 @@ fill(255);
 text("ON CLOUD NINE...", width/2, height/4);
 
 
-	if (mouseIsPressed) 
-	{
-		image(magrittecat, width/2, rise, magrittecat.width, magrittecat.height);
-        if (rise < height) 
-		{
-			rise++;
-		}
+	 let yOffset = sin(frameCount * 0.05) * 15;
+     image(magrittecat, width/2, height/2 + yOffset, magrittecat.width, magrittecat.height);
 
-    }
 
+
+fill (115, 35, 6, 200);
+noStroke(0);
+ellipse (width/2, height-25, 160, 30);
+
+    
 
 }  
 
