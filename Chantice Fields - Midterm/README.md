@@ -1,4 +1,4 @@
-# scrap
+# Midterm Title Page
 
 ## Getting Started
 

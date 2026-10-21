@@ -107,6 +107,7 @@ function draw()
    {
      doScene2();
    } 
+     
   }
 
  //Draw frame
@@ -128,11 +129,7 @@ function draw()
   eyeOffset += 10;
   catScale += 0.01;
 
-  }
-}
- 
- function drawScene2() 
- {
+
   // orbiting title
   let x = width / 2 + radius * cos(angle);
   let y = height / 2 + radius * sin(angle);
@@ -143,4 +140,21 @@ function draw()
   // Increment angle to make it move
   angle += 0.03; 
 }
+
+  }
+ 
+
      
+
+
+
+
+
+
+
+
+
+
+
+
+
