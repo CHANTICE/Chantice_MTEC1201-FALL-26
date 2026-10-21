@@ -24,7 +24,7 @@ let clouds2Y = 350; let clouds3Y = 100;
 async function setup() 
 {   
     createCanvas(415, 420);
-    background(255);
+    background(0);
     imageMode(CENTER);
     textAlign(CENTER);
     textSize(40);
@@ -43,7 +43,7 @@ async function setup()
 
 function draw() 
 {
-    background(220);
+    background(0);
 
     
     image(table, width/2, height/2, width, height);

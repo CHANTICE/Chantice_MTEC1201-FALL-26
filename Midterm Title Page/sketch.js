@@ -1,3 +1,5 @@
+let scene = 1;
+
 let sky;
 let bg;
 
@@ -11,6 +13,11 @@ let table;
 
 let angle = 0;
 let radius = 100;
+
+let pupilScale = 1;
+let catScale = 0.05;
+
+let eyeOffset = 0;
 
 
 //Global variables for ellipse size and position
@@ -34,11 +41,13 @@ let imgShader;
 async function setup() 
 {   
     createCanvas(992, 556);
+   // rectMode(CENTER);
     imageMode(CENTER);
     textAlign(CENTER, CENTER);
     textSize(40);
     
     sky = await loadImage("assets/sky.png");
+    table = await loadImage("assets/table.png");
 
      clouds1 = await loadImage("assets/clouds1.png");
      clouds4 = await loadImage("assets/clouds4.png");
@@ -46,6 +55,8 @@ async function setup()
 
      clouds2 = await loadImage("assets/clouds2.png");
      clouds3 = await loadImage("assets/clouds3.png");
+
+     cat = await loadImage("assets/cat.png");
 
      eyeL = await loadImage("assets/eyeLeft1.png");
      eyeR = await loadImage("assets/eyeRight1.png");
@@ -58,9 +69,10 @@ async function setup()
 function draw() 
 {
 
-   background(bg);
-   bg = image(sky, width/2, height/2);
+   background(255);
+   image(sky, width/2, height/2);
 
+   //table at center of page
    image(table, width/2, height/2, width, height);
 
   
@@ -74,32 +86,73 @@ function draw()
     image(clouds2, clouds2X, clouds2Y);
     image(clouds3, clouds3X, clouds3Y);
 
-    
+    //Draw cat behind the pupil
+    image(cat, width/2, height/2, cat.width * catScale, cat.height *catScale);  
+        
     //Draw eye
-    image(eyeL, width/2, height/2, width, height);
-    image(eyeR, width/2, height/2, width, height);
-    image(pupil, width/2, height/2, width, height);
+    image(eyeL, width/2 -eyeOffset, height/2, width, height);
+    image(eyeR, width/2 +eyeOffset, height/2, width, height);
+   image(pupil, width/2, height/2, pupil.width * pupilScale, pupil.height * pupilScale);
 
+    if (scene != 3) //if not scene 3...
+   {  
+     expand = 0;  //reset value of expand
+   }
    
-       
-  
+   if (scene == 1) 
+   {
+     doScene1();
+   } 
+   else if (scene == 2) 
+   {
+     doScene2();
+   } 
+     
+  }
+
+ //Draw frame
+  //noFill();
+ //strokeWeight(50); 
+//rect (width/2, height/2, 850, 456, 20, 20);
+
+ function doScene1() 
+ {
+     if(mouseIsPressed)
+{
+    pupilScale -= 0.01;
+
+    if(pupilScale <= 0.001)
+    {
+      pupilScale = 0.001;
+    }
+
+  eyeOffset += 10;
+  catScale += 0.01;
+
+  }
+}
+ 
+ function drawScene2() 
+ {
   // orbiting title
   let x = width / 2 + radius * cos(angle);
   let y = height / 2 + radius * sin(angle);
 
-    // Draw the text at the moving coordinate
+  // Draw the text at the moving coordinate
   text("ON CLOUD NINE", x, y);
   
   // Increment angle to make it move
   angle += 0.03; 
-
-  
 }
+     
 
-mousePressed();
-{
-    pupil -= 1;
-}
+
+
+
+
+
+
+
 
 
 
