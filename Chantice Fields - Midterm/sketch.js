@@ -107,7 +107,6 @@ function draw()
    {
      doScene2();
    } 
-     
   }
 
  //Draw frame
