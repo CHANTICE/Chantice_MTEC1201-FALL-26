@@ -27,8 +27,8 @@ let ellipseX = 218; let ellipseY = 395;
 
 
 //Global variables for left cloud positions
-let clouds1X = 100; let clouds4X = 10;  let clouds5X = 100;
-let clouds1Y = 300; let clouds4Y = 215; let clouds5Y = 260;
+let clouds1X = 100; let clouds4X = 300; let clouds5X = 300;
+let clouds1Y = 300; let clouds4Y = 315; let clouds5Y = 375;
 
 
 //Global variables for right cloud positions
@@ -119,7 +119,7 @@ function draw()
  {
      if(mouseIsPressed)
 {
-    pupilScale -= 0.01;
+    pupilScale -= 0.02;
 
     if(pupilScale <= 0.001)
     {
@@ -128,6 +128,10 @@ function draw()
 
   eyeOffset += 10;
   catScale += 0.01;
+}
+
+
+  
 
 
   // orbiting title
@@ -141,7 +145,7 @@ function draw()
   angle += 0.03; 
 }
 
-  }
+
  
 
      
