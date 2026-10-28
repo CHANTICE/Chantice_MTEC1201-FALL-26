@@ -130,7 +130,7 @@ function draw()
   
 
     image(clouds1, clouds1X, clouds1Y);
-      image(clouds4, clouds4X, clouds4Y);
+    image(clouds4, clouds4X, clouds4Y);
     image(clouds2, xPos, clouds2Y);
   
 
@@ -142,7 +142,7 @@ function draw()
   
   //let yOffset = sin(frameCount * 0.05) * 15;
   let catSize = (cat.width * catScale, cat.height * catScale);
-  image(cat, catX, height/2, catSize, catSize);
+  image(cat, catX, height/2 - catOffset, catSize, catSize);
 
 
   
@@ -213,7 +213,7 @@ function scene01()
 
 function scene02 ()
 {
-catY += catMove;
+catOffset +=10;
 
 }
 
