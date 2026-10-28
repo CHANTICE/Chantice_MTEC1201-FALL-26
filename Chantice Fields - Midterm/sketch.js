@@ -9,13 +9,15 @@ let clouds2; let clouds3;
 let eyeL; let eyeR; let pupil;
 
 let cat;
+let catScale = 0.05;
+
 let table;
 
 let angle = 0;
 let radius = 100;
 
 let pupilScale = 1;
-let catScale = 0.05;
+
 
 let eyeOffset = 0;
 
