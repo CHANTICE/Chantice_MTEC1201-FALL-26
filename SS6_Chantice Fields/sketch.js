@@ -1,6 +1,6 @@
 /*Chantice Fields
 */
-let arrayVal = []; //array for storing my calculated values
+let arrayVal = [];
 
 //timer variables
 let currentTime = 0; 
@@ -23,23 +23,21 @@ function setup()
   rectMode(CENTER);
   for (let i = 5; i <= 12; i++)
 	{
-		arrayVal[i - 5] = pow(i, 6); //sub i by 4 so 1st array element is addressed
-		
-		//print array values to console:
-		//print("arrayVal[" + (i-4) + "] = " + arrayVal[i-4]);
+		arrayVal[i - 5] = pow(i, 6); 
+	
 	}
 
 }
 
 function draw() 
 {
-    currentTime = millis(); //keep track of elapsed time
+    currentTime = millis();
 	
-	if (currentTime - prevTime >= timer) //if 1 sec has passed since last timer triggered
+	if (currentTime - prevTime >= timer) 
 	{
-		prevTime = currentTime; //set previous time to the current time when timer triggered
+		prevTime = currentTime; 
 		
-		//choose a random element from array
+	
 		r = arrayVal[int(random(arrayVal.length))]; 
 		g = arrayVal[int(random(arrayVal.length))];
 		b = arrayVal[int(random(arrayVal.length))];
