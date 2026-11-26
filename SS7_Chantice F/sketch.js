@@ -2,15 +2,8 @@ let panels = [];
 let panelWidth = 100;
 
 let ellipses =[]
-let diameter = 100
-//let ellipse2;
-//ellipses.length = 10
-
-let r = 193;
-let g = 40;
-let b =163;
-
-
+let diameter = 100 
+//ellipses.length = 72
 
 let currentTime = 0;
 let prevTime = 0;
@@ -18,12 +11,13 @@ let interval = 500; //in milliseconds
 
 function setup() 
 {
-    createCanvas(800, 600);
+    createCanvas(800, 700);
+    rectMode(CENTER)
 
  
-    for (let y = 0; y < height; y += panelWidth)
+    for (let y = 0; y <= height; y += panelWidth)
     {
-        for(let x = 0; x < width; x += panelWidth) 
+        for(let x = 0; x <= width; x += panelWidth) 
         {
            
             panels.push(new Panel(x, y, 127, 127, 127, panelWidth));
@@ -31,9 +25,9 @@ function setup()
         }
     }
 
-     for (let y = 50; y < height; y += 100)
+     for (let y = 0; y <= height; y += 100)
     {
-        for(let x = 50; x < width; x += 100) 
+        for(let x = 0; x <= width; x += 100) 
         {
            
             ellipses.push(new Ellipse(x, y, 127, 127, 127, diameter));
@@ -73,6 +67,11 @@ function draw()
         {
             ellipses[i].slightRandom();   
         }
+
+        ellipses[10].diameter = random(20,200);
+        ellipses[58].diameter = random(20,200);
+       // ellipses[10].x = random(width);
+
     }
 
     //ellipse1.display();
@@ -93,7 +92,6 @@ class Panel {
     display() 
     {
         fill(this.r, this.g, this.b);
-        // stroke(this.r, this.g, this.b);
         rect(this.x, this.y, this.size, this.size);
     }
 
@@ -129,7 +127,7 @@ class Panel {
   display()
   {
       fill(this.r, this.g, this.b);
-        // stroke(this.r, this.g, this.b);
+
         ellipse(this.x, this.y, this.diameter);
     }
 
@@ -146,7 +144,5 @@ class Panel {
         this.g += random(-10, 10);
         this.b += random(-10, 10);
     }
-
-
 
 }
