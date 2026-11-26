@@ -19,14 +19,14 @@ function setup()
 {
     createCanvas(800, 600);
 
-    //create a new panel for each grid cell
+ 
     for (let y = 0; y < height; y += panelWidth)
     {
         for(let x = 0; x < width; x += panelWidth) 
         {
-            //.push adds a new array element to end of panels array
+           
             panels.push(new Panel(x, y, 127, 127, 127, panelWidth));
-            //add a new panel to array at x and y position, in grey, size of panelWidth
+          
         }
     }
 
@@ -50,12 +50,12 @@ function draw()
 
   
     currentTime = millis();
-    if (currentTime - prevTime >= interval) //if timer triggers...
+    if (currentTime - prevTime >= interval)
     {
-        prevTime = currentTime; //record time when triggered
+        prevTime = currentTime; 
         for(let i = 0; i < panels.length; i++)
         {
-            panels[i].slightRandom();   //slightly change color of every panel in array
+            panels[i].slightRandom();   
         }
     }
 
