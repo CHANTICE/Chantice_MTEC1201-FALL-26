@@ -1,0 +1,121 @@
+let panels = []; 
+let panelWidth = 100;
+
+let ellipse1;
+let ellipse2;
+//ellipses.length = 10
+
+let r = 193;
+let g = 40;
+let b =163;
+
+
+
+let currentTime = 0;
+let prevTime = 0;
+let interval = 500; //in milliseconds
+
+function setup() 
+{
+    createCanvas(800, 600);
+
+    //create a new panel for each grid cell
+    for (let y = 0; y < height; y += panelWidth)
+    {
+        for(let x = 0; x < width; x += panelWidth) 
+        {
+            //.push adds a new array element to end of panels array
+            panels.push(new Panel(x, y, 127, 127, 127, panelWidth));
+            //add a new panel to array at x and y position, in grey, size of panelWidth
+        }
+    }
+
+    ellipse1 = new Ellipse (300, 100, 100);
+     ellipse2 = new Ellipse (200, 200, 150);
+
+   }
+
+function draw() 
+{
+    background(0);
+  
+
+     noStroke ();
+     //strokeWeight(4);
+  
+    for(let i = 0; i < panels.length; i++)
+    {
+        panels[i].display();
+    }
+
+  
+    currentTime = millis();
+    if (currentTime - prevTime >= interval) //if timer triggers...
+    {
+        prevTime = currentTime; //record time when triggered
+        for(let i = 0; i < panels.length; i++)
+        {
+            panels[i].slightRandom();   //slightly change color of every panel in array
+        }
+    }
+
+    ellipse1.display();
+    ellipse2.display();
+}
+
+class Panel {
+    constructor(tempX, tempY, tempR, tempG, tempB, tempSize) 
+    {
+        this.x = tempX;
+        this.y = tempY;
+        this.r = tempR;
+        this.g = tempG;
+        this.b = tempB;
+        this.size = tempSize;
+    }
+
+    display() 
+    {
+        fill(this.r, this.g, this.b);
+        // stroke(this.r, this.g, this.b);
+        rect(this.x, this.y, this.size, this.size);
+    }
+
+    randomize() 
+    {
+        this.r = random(255);
+        this.g = random(255);
+        this.b = random(255);
+    }
+
+    slightRandom() 
+    {
+        this.r += random(-10, 10);
+        this.g += random(-10, 10);
+        this.b += random(-10, 10);
+    }
+}  
+
+
+  class Ellipse
+  
+  {
+    constructor (tempX, tempY, tempR, tempG, tempB, tempDiameter)
+  {
+     this.x = tempX;
+        this.y = tempY;
+        this.r = tempR;
+        this.g = tempG;
+        this.b = tempB;
+        this.diameter = tempDiameter;
+  }
+ 
+  display()
+  {
+    ellipse(this.x, this.y, this.r, this.g, this.b, this.diameter);
+
+    stroke(100);
+    strokeWeight(4);
+
+}
+}
