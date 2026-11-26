@@ -7,7 +7,7 @@ let diameter = 100
 
 let currentTime = 0;
 let prevTime = 0;
-let interval = 500; //in milliseconds
+let interval = 1000; //in milliseconds
 
 function setup() 
 {
@@ -39,7 +39,7 @@ function setup()
 
 function draw() 
 {
-    background(0);
+    background(32, 42, 68);
 
      noStroke ();
   
@@ -62,14 +62,20 @@ function draw()
         {
             panels[i].slightRandom();   
         }
+        
+        panels[10].size = random(10,200);
+        panels[33].size = random(20,200);
+        panels[58].size = random(10,200);
+
 
         for(let i = 0; i < ellipses.length; i++)
         {
             ellipses[i].slightRandom();   
         }
 
-        ellipses[10].diameter = random(20,200);
-        ellipses[58].diameter = random(20,200);
+        ellipses[10].diameter = random(10,200);
+        ellipses[33].diameter = random(20,200);
+        ellipses[58].diameter = random(10,200);
        // ellipses[10].x = random(width);
 
     }
