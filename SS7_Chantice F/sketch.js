@@ -30,7 +30,7 @@ function setup()
         }
     }
 
-    ellipse1 = new Ellipse (300, 100, 100);
+    ellipse1 = new Ellipse (50, 50, 100);
      ellipse2 = new Ellipse (200, 200, 150);
 
    }
