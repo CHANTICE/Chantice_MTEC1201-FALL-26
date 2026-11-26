@@ -1,8 +1,9 @@
 let panels = []; 
 let panelWidth = 100;
 
-let ellipse1;
-let ellipse2;
+let ellipses =[]
+let diameter = 100
+//let ellipse2;
 //ellipses.length = 10
 
 let r = 193;
@@ -30,22 +31,32 @@ function setup()
         }
     }
 
-    ellipse1 = new Ellipse (50, 50, 100);
-     ellipse2 = new Ellipse (200, 200, 150);
+     for (let y = 50; y < height; y += 100)
+    {
+        for(let x = 50; x < width; x += 100) 
+        {
+           
+            ellipses.push(new Ellipse(x, y, 127, 127, 127, diameter));
+          
+        }
+    }
 
    }
 
 function draw() 
 {
     background(0);
-  
 
      noStroke ();
-     //strokeWeight(4);
   
     for(let i = 0; i < panels.length; i++)
     {
         panels[i].display();
+    }
+
+     for(let i = 0; i < ellipses.length; i++)
+    {
+        ellipses[i].display();
     }
 
   
@@ -57,10 +68,15 @@ function draw()
         {
             panels[i].slightRandom();   
         }
+
+        for(let i = 0; i < ellipses.length; i++)
+        {
+            ellipses[i].slightRandom();   
+        }
     }
 
-    ellipse1.display();
-    ellipse2.display();
+    //ellipse1.display();
+    //ellipse2.display();
 }
 
 class Panel {
@@ -112,10 +128,25 @@ class Panel {
  
   display()
   {
-    ellipse(this.x, this.y, this.r, this.g, this.b, this.diameter);
+      fill(this.r, this.g, this.b);
+        // stroke(this.r, this.g, this.b);
+        ellipse(this.x, this.y, this.diameter);
+    }
 
-    stroke(100);
-    strokeWeight(4);
+    randomize() 
+    {
+        this.r = random(255);
+        this.g = random(255);
+        this.b = random(255);
+    }
 
-}
+    slightRandom() 
+    {
+        this.r += random(-10, 10);
+        this.g += random(-10, 10);
+        this.b += random(-10, 10);
+    }
+
+
+
 }
